@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Manager Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <!-- ✅ Navbar -->
+    <nav class="navbar">
+        <div class="logo">H <span>OURS</span></div>
+        <ul class="nav-links">
+            <li><a href="#" class="active">Dashboard</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Clients</a></li>
+            <li><a href="#">Time</a></li>
+            <li><a href="#">Reports</a></li>
+        </ul>
+        <div class="profile">
+            <img src="pic1.jpeg" alt="User">
+            <span>Mario</span>
+        </div>
+    </nav>
+
+    <!-- ✅ Main Content (Flex container for layout) -->
+    <div class="dashboard-container">
+
+        <!-- ✅ Left Side Content -->
+        <div class="main-content">
+
+            <!-- ✅ Dashboard Cards -->
+            <div class="dashboard">
+                <div class="card"><i class="fa-solid fa-bars-progress"
+                        style="margin-left: -100px; font-size: 25px;"></i>
+                    <h2>5</h2>
+                    <p>Total Projects</p>
+                </div>
+                <div class="card"> <i class="fa-regular fa-circle-check"
+                        style="margin-left: -100px; font-size: 25px;"></i>
+                    <h2>1</h2>
+                    <p>Completed</p>
+                </div>
+                <div class="card"> <i class="fa-solid fa-arrow-rotate-left"
+                        style="margin-left: -100px; font-size: 25px;"></i>
+                    <h2>3</h2>
+                    <p>Ongoing</p>
+                </div>
+                <div class="card delayed"> <i class="fa-solid fa-triangle-exclamation"
+                        style="margin-left: -100px; font-size: 25px; color: red;"></i>
+                    <h2>1</h2>
+                    <p>Delayed</p>
+                </div>
+                <div class="card"> <i class="fa-solid fa-user" style="margin-left: -100px; font-size: 25px;"></i>
+                    <h2>5</h2>
+                    <p>Employees</p>
+                </div>
+            </div>
+
+            <!-- ✅ Charts Section -->
+            <div class="charts-container">
+                <div class="chart">
+                    <h3>Total Revenue</h3>
+                    <canvas id="lineChart"></canvas>
+                </div>
+                <div class="chart">
+                    <h3>Budget</h3>
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+
+
+
+            <!-- ✅ Right Panel (Team Mood) -->
+            <div class="right-panel">
+                <h3>Team Mood</h3>
+                <div class="team-mood">
+                    <div class="team-member">
+                        <img src="pic2.jpeg" alt="Andrea">
+                        <span>Andrea - UX Junior</span>
+                        <span class="emoji">😊</span>
+                    </div>
+                    <div class="team-member">
+                        <img src="pic3.jpeg" alt="Alvaro">
+                        <span>Alvaro - Backend Dev</span>
+                        <span class="emoji">😃</span>
+                    </div>
+                    <div class="team-member">
+                        <img src="pic4.jpeg" alt="Juan">
+                        <span>Juan - UX Senior</span>
+                        <span class="emoji">😎</span>
+                    </div>
+                    <div class="team-member">
+                        <img src="pic5.jpeg" alt="Jose">
+                        <span>Jose - Marketing</span>
+                        <span class="emoji">😂</span>
+                    </div>
+                    <div class="team-member">
+                        <img src="pic6.jpeg" alt="Maria">
+                        <span>Maria - UX Junior</span>
+                        <span class="emoji">🙂</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div>
+            <!-- Header -->
+            <div class="budget-header">
+                <h1 class="title">Budget Status</h1>
+                <!-- Tabs -->
+                <button class="budget-btn budget-active"><i class="fa-solid fa-plus" style="margin-right: 5px;"></i>Add
+                    new Project</button>
+                <button class="budget-btn"><i class="fa-solid fa-download" style="margin-right: 5px;"></i>
+                    Download</button>
+                <button class="budget-btn"><i class="fa-solid fa-calendar-days" style="margin-right: 5px;"></i>dd/mm/yy
+                    - dd/mm/yy</button>
+                <button class="budget-btn"><i class="fa-solid fa-filter" style="margin-right: 5px;"></i>Filter</button>
+            </div>
+            <div class="budget-status-container">
+                <div class="budget-card red">
+                    <h4>Insurance App</h4>
+                    <p><b>Total Budget:</b> €70,000</p>
+                    <p style="color: red;">-2,500 €</p>
+                    <div class="progress-bar red"><span style="width: 60%;"></span></div>
+                    <p>Actual hours: 1,100 | <span style="color: red;">100 hours over Budget</span></p>
+                </div>
+
+                <div class="budget-card orange">
+                    <h4>Neo</h4>
+                    <p><b>Total Budget:</b> €70,000</p>
+                    <p style="color: orange;">4,000 €</p>
+                    <div class="progress-bar orange"><span style="width: 50%;"></span></div>
+                    <p>Actual hours: 1,100 | 1000 sold hours</p>
+                </div>
+
+                <div class="budget-card green">
+                    <h4>VR Website</h4>
+                    <p><b>Total Budget:</b> €70,000</p>
+                    <p style="color: green;">4,000 €</p>
+                    <div class="progress-bar green"><span style="width: 80%;"></span></div>
+                    <p>Actual hours: 1,100 | 2000 sold hours</p>
+                </div>
+
+                <div class="budget-card green">
+                    <h4>VR Website</h4>
+                    <p><b>Total Budget:</b> €70,000</p>
+                    <p style="color: green;">4,000 €</p>
+                    <div class="progress-bar green"><span style="width: 70%;"></span></div>
+                    <p>Actual hours: 1,100 | 1100 sold hours ✅</p>
+                </div>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+</body>
+
+</html>

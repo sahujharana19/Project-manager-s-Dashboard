@@ -1,0 +1,454 @@
+/* ✅ General Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background: #f4f6f8;
+  color: #333;
+}
+
+/* ✅ Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1b2a47;
+  padding: 15px 30px;
+  color: white;
+}
+
+.nav-links .active {
+  border-bottom: 3px solid #00796b;
+  border-radius: 2px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: teal;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin: 0 15px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: teal;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* ✅ Main Layout */
+/* .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  flex-wrap: nowrap;
+  position: relative; /*Ensure proper positioning  */
+/* } */
+*/ .container {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto; /* Prevent cutting */
+}
+
+.main-content {
+  flex: 1;
+  margin-right: 320px;
+  padding: 12px 12px;
+}
+
+/* ✅ Right Panel */
+.right-panel {
+  width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: absolute; /* 👈 Fix sidebar */
+  right: 20px;
+  top: 90px; /* Navbar ke neeche */
+  z-index: 1000; /* Ensure it stays above */
+  background: white; /* Overlap fix */
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ Budget Section */
+/* .budget-container {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+} */
+
+/* ✅ Budget Status Section */
+.budget-status-container {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  gap: 15px;
+  justify-content: space-between; /* Equal spacing */
+  align-items: stretch; /* Align items properly */
+  overflow-x: auto; /* Scroll on small screens */
+  padding: 10px;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* ✅ Individual Budget Cards */
+.budget-card {
+  flex: 1 1 24%; /* Exactly 4 cards per row */
+  min-width: 250px; /* Ensure proper sizing */
+  max-width: 320px;
+  background: white;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid transparent;
+  transition: transform 0.2s ease-in-out;
+}
+
+.budget-card:hover {
+  transform: translateY(-3px);
+}
+
+.budget-card.red {
+  border-left-color: red;
+}
+
+.budget-card.orange {
+  border-left-color: orange;
+}
+
+.budget-card.green {
+  border-left-color: green;
+}
+
+/* ✅ Remove Wrapping on Large Screens */
+@media (max-width: 1024px) {
+  .budget-status-container {
+    flex-wrap: wrap; /* Allow wrapping if screen is small */
+    justify-content: center;
+  }
+
+  .budget-card {
+    flex: 1 1 calc(50% - 15px); /* 2 cards per row */
+  }
+}
+
+@media (max-width: 768px) {
+  .budget-card {
+    flex: 1 1 100%; /* 1 card per row */
+  }
+
+  .budget-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 12px;
+  }
+}
+
+/* ✅ Progress Bars */
+.progress-bar {
+  height: 8px;
+  border-radius: 5px;
+  background: #eee;
+  position: relative;
+  margin-top: 10px;
+}
+
+.progress-bar span {
+  display: block;
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.5s ease-in-out;
+}
+
+.progress-bar.red span {
+  background: red;
+}
+
+.progress-bar.orange span {
+  background: orange;
+}
+
+.progress-bar.green span {
+  background: green;
+}
+
+/* ✅ Budget Details */
+.budget-details {
+  font-size: 14px;
+  color: #555;
+  margin-top: 5px;
+}
+
+/* ✅ Responsive Design */
+@media (max-width: 768px) {
+  .budget-status-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .budget-card {
+    width: 90%;
+  }
+
+}
+
+/* ✅ Team Mood Section - Budget ke side me */
+.team-mood {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+/* ✅ Dashboard Cards */
+.dashboard {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  width: 170px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+}
+
+.card h2 {
+  margin: 10px 0;
+  color: #1b2a47;
+}
+
+.delayed {
+  background: #ff4c4c;
+  color: white;
+}
+
+/* ✅ Charts */
+.charts-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+}
+
+.chart {
+  background: white;
+  padding: 20px;
+  width: 48%;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* ✅ Budget Status Header */
+.budget-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap;
+}
+
+.budget-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.budget-buttons .btn {
+  background: teal;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.budget-buttons .btn:hover {
+  background: #00796b;
+}
+
+.budget-buttons .date-picker {
+  border: 1px solid #ddd;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+/* ✅ Project Cards */
+.projects {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.project-card {
+  background: white;
+  padding: 15px;
+  width: 280px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.project-header h4 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.project-header p {
+  margin: 5px 0;
+  color: gray;
+  font-size: 14px;
+}
+
+/* ✅ Progress Bars */
+.progress-bar {
+  height: 8px;
+  background: #ddd;
+  border-radius: 4px;
+  margin: 8px 0;
+  position: relative;
+}
+
+.progress-bar span {
+  display: block;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.progress-bar.red span {
+  background: red;
+}
+
+.progress-bar.yellow span {
+  background: orange;
+}
+
+.progress-bar.green span {
+  background: green;
+}
+
+/* ✅ Hours & Budget Info */
+.hours-info {
+  font-size: 14px;
+  color: #555;
+}
+
+/* ✅ Status Colors */
+.red {
+  border-left: 5px solid red;
+}
+
+.yellow {
+  border-left: 5px solid orange;
+}
+
+.green {
+  border-left: 5px solid green;
+}
+
+/* ✅ Team Mood Members */
+.team-member {
+  display: flex;
+  align-items: center;
+  background: #f8f8f8;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* ✅ Profile Images */
+.team-member img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* ✅ Emoji Styling */
+.emoji {
+  cursor: grab;
+  margin-left: auto;
+}
+
+
+.budget-header {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 12px;
+}
+
+.budget-header .title {
+  font-size: 40px;
+  font-weight: bold;
+  padding: 12px 12px;
+  margin-top: 12px;
+}
+
+.budget-btn {
+  background: #fff;
+  padding: 8px 20px;
+  border: 2px solid rgb(3, 146, 110);
+  color: black;
+  border-radius: 5px;
+  margin-top: 12px;
+}
+
+.budget-active {
+  background: rgb(3, 146, 110);
+  color: white;
+}
+
